@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
+    public float gravity = -9.81f;
+    private Vector3 velocity;
+
     // Movement Speeds
     public float walkSpeed = 6f;
     public float swimSpeed = 4f;
@@ -65,6 +68,15 @@ public class PlayerMovement : MonoBehaviour
             SpecialMovement();
             BasicMovement();
         }
+
+        // Apply gravity and ground check
+        if (controller.isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 
     void BasicMovement()
