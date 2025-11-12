@@ -9,7 +9,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject SystemPanel;
     
     //All UI elements should pause game (all movement and audio -> switch to general audio if in fight)
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     //public bool isSystemDisplayed = false;
 
