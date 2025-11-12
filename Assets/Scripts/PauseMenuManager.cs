@@ -4,9 +4,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenuManager : MonoBehaviour
 {
     public GameObject PauseOverlay;
+    public GameObject QuestsPanel;
+    public GameObject InventoryPanel;
+    public GameObject SystemPanel;
     
     //All UI elements should pause game (all movement and audio -> switch to general audio if in fight)
     private bool isPaused = false;
+
+    //public bool isSystemDisplayed = false;
 
     //private bool isSaved = false;
 
@@ -25,16 +30,20 @@ public class PauseMenuManager : MonoBehaviour
     public void Pause()
     {
         PauseOverlay.SetActive(true);
+        openSystemPanel();
         
         //Pauses everything using Time.deltaTime (so animation should be based on this later)
         //Should also stop all animations etc (in future)
         Time.timeScale = 0f;
-
         isPaused = true;
     }
 
     public void Resume()
     {
+        InventoryPanel.SetActive(false);
+        QuestsPanel.SetActive(false);
+        SystemPanel.SetActive(false);
+        
         PauseOverlay.SetActive(false);
 
         //Resume with 1
@@ -43,29 +52,24 @@ public class PauseMenuManager : MonoBehaviour
         isPaused = false;
     }
 
-    public void Save()
+    public void openSystemPanel()
     {
-        //saves game to new load file
-        //max load files will be 3 (to reduce game strain)
+        SystemPanel.SetActive(true);
+        InventoryPanel.SetActive(false);
+        QuestsPanel.SetActive(false);
     }
 
-    //Load Selected Save File
-    public void Load()
+    public void openInventoryPanel()
     {
-        //Opens Save Files
-        //Player Selects File
-        //Loads back to that save
+        InventoryPanel.SetActive(true);
+        SystemPanel.SetActive(false);
+        QuestsPanel.SetActive(false);
     }
 
-    public void ReturnToMainMenu()
+    public void openQuestsPanel()
     {
-        //if (!isSaved)
-        //{
-        //    //Display warning dialogue and give player chance to save or ignore warning
-        //}
-
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuScene");
-
+        QuestsPanel.SetActive(true);
+        InventoryPanel.SetActive(false);
+        SystemPanel.SetActive(false);
     }
 }
