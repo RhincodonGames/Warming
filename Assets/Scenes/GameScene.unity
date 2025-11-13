@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0833304c2a4cc4197d74c958c35328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSprinting: {fileID: 0}
+  isSprinting: {fileID: 1802388139}
   currentHealth: 0
   maxHealth: 100
   currentHunger: 0
@@ -10297,6 +10297,9 @@ MonoBehaviour:
   FoodTab: {fileID: 4147935365888577096}
   EquipmentTab: {fileID: 5002883045901575376}
   AbilitiesTab: {fileID: 8052232049659366917}
+  foodButton: {fileID: 1281056165}
+  equipmentButton: {fileID: 1363883508}
+  abilitiesButton: {fileID: 630324623}
   isPaused: {fileID: 8375918086676159936}
 --- !u!114 &8375918086676159938
 MonoBehaviour:

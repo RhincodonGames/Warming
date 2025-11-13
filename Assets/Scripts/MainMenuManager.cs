@@ -36,16 +36,21 @@ public class MainMenuManager : MonoBehaviour
         isDisplayed = true;
     }
 
+    public void Back()
+    {
+        Debug.Log("Settings Screen Closed");
+
+        settingsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+
+        isDisplayed = false;
+    }
+
     public void Update()
     {
         if (isDisplayed && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Settings Screen Closed");
-
-            settingsPanel.SetActive(false);
-            mainMenuPanel.SetActive(true);
-
-            isDisplayed = false;
+            Back();
         }
     }
 }
