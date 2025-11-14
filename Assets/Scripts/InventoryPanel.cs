@@ -8,13 +8,20 @@ public class InventoryPanel : MonoBehaviour
 {
     public GameObject FoodTab;
     public GameObject EquipmentTab;
+    public GameObject MaterialsTab;
     public GameObject AbilitiesTab;
 
     public Button foodButton;
     public Button equipmentButton;
+    public Button materialsButton;
     public Button abilitiesButton;
 
     public PauseMenuManager isPaused;
+
+    private void Start()
+    {
+        switchFoodTab();
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,6 +38,11 @@ public class InventoryPanel : MonoBehaviour
         }
         else if (isPaused && Input.GetKeyDown(KeyCode.Alpha3))
         {
+            switchMaterialsTab();
+            EventSystem.current.SetSelectedGameObject(materialsButton.gameObject);
+        }
+        else if (isPaused && Input.GetKeyDown(KeyCode.Alpha4))
+        {
             switchAbilitiesTab();
             EventSystem.current.SetSelectedGameObject(abilitiesButton.gameObject);
         }
@@ -40,14 +52,23 @@ public class InventoryPanel : MonoBehaviour
     {
         FoodTab.SetActive(true);
         EquipmentTab.SetActive(false);
+        MaterialsTab.SetActive(false);
         AbilitiesTab.SetActive(false);
     }
 
     public void switchEquipmentTab()
     {
         EquipmentTab.SetActive(true);
+        MaterialsTab.SetActive(false);
         AbilitiesTab.SetActive(false);
         FoodTab.SetActive(false);
+    }
+    public void switchMaterialsTab()
+    {
+        MaterialsTab.SetActive(true);
+        AbilitiesTab.SetActive(false);
+        FoodTab.SetActive(false);
+        EquipmentTab.SetActive(false);
     }
 
     public void switchAbilitiesTab()
@@ -55,5 +76,6 @@ public class InventoryPanel : MonoBehaviour
         AbilitiesTab.SetActive(true);
         FoodTab.SetActive(false);
         EquipmentTab.SetActive(false);
+        MaterialsTab.SetActive(false);
     }
 }
