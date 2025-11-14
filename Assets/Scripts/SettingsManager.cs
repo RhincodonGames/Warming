@@ -25,7 +25,7 @@ public class SettingsManager : MonoBehaviour
     {
         backButton.onClick.AddListener(() =>
         {
-            SaveManager.Instance.SaveVolumeSettings(musicSlider.value, effectsSlider.value, masterSlider.value);
+            //SaveManager.Instance.SaveVolumeSettings(musicSlider.value, effectsSlider.value, masterSlider.value);
 
             print("Saved to Player Prefs");
         });
@@ -35,23 +35,23 @@ public class SettingsManager : MonoBehaviour
 
     private IEnumerator LoadAndApplySettings()
     {
-        LoadAndSetVolume();
+        //LoadAndSetVolume();
 
         yield return new WaitForSeconds(0.1f);
 
 
     }
 
-    private void LoadAndSetVolume()
-    {
-        VolumeSettings volumeSettings = SaveManager.Instance.LoadVolumeSettings();
+    //private void LoadAndSetVolume()
+    //{
+    //    VolumeSettings volumeSettings = SaveManager.Instance.LoadVolumeSettings();
 
-        masterSlider.value = volumeSettings.master;
-        musicSlider.value = volumeSettings.music;
-        effectsSlider.value = volumeSettings.effects;
+    //    masterSlider.value = volumeSettings.master;
+    //    musicSlider.value = volumeSettings.music;
+    //    effectsSlider.value = volumeSettings.effects;
 
-        print("Volume Settings are Loaded");
-    }
+    //    print("Volume Settings are Loaded");
+    //}
 
     private void Awake()
     {

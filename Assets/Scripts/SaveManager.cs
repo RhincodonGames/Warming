@@ -27,21 +27,21 @@ public class SaveManager : MonoBehaviour
     }
 
 
-    public void SaveVolumeSettings(float _music, float _effects, float _master)
-    {
-        VolumeSettings volumeSettings = new VolumeSettings()
-        {
-            music = _music,
-            effects = _effects,
-            master = _master
-        };
+    //public void SaveVolumeSettings(float _music, float _effects, float _master)
+    //{
+    //    VolumeSettings volumeSettings = new VolumeSettings()
+    //    {
+    //        music = _music,
+    //        effects = _effects,
+    //        master = _master
+    //    };
 
-        PlayerPrefs.SetString("Volume", JsonUtility.ToJson(volumeSettings));
-        PlayerPrefs.Save();
-    }
+    //    PlayerPrefs.SetString("Volume", JsonUtility.ToJson(volumeSettings));
+    //    PlayerPrefs.Save();
+    //}
 
-    public VolumeSettings LoadVolumeSettings()
-    {
-        return JsonUtility.FromJson<VolumeSettings>(PlayerPrefs.GetString("Volume"));
-    }
+    //public VolumeSettings LoadVolumeSettings()
+    //{
+    //    return JsonUtility.FromJson<VolumeSettings>(PlayerPrefs.GetString("Volume"));
+    //}
 }
