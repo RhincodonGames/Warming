@@ -168,7 +168,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private List<string> GetItemList(string category)
+    public List<string> GetItemList(string category)
     {
             if (category == "Food")
     {

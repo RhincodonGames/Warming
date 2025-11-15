@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8910382613119561560}
   - component: {fileID: 2954442191349050981}
   - component: {fileID: 4005028325005473167}
+  - component: {fileID: 835503879802377953}
   m_Layer: 0
   m_Name: Stone Helmet
-  m_TagString: Untagged
+  m_TagString: EquipmentSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,3 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfc4c7e360b8144eac871d1b5d925d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &835503879802377953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175623890699998338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d8006f682bcb24483353eda7c85da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  category: Equipment

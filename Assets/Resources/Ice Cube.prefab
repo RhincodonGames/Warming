@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8777102530901432553}
   - component: {fileID: 5014663128935070591}
   - component: {fileID: 3591360951798557223}
-  - component: {fileID: 3611845465126351092}
+  - component: {fileID: -2540892903043960331}
   m_Layer: 0
   m_Name: Ice Cube
-  m_TagString: Untagged
+  m_TagString: MaterialsSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &3611845465126351092
+--- !u!114 &-2540892903043960331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,14 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 864425311199312791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98f42dc19121364e8ae6c5caf49e583, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d8006f682bcb24483353eda7c85da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
-  thisName: Ice Cube
-  thisDescription: Ice Cubes are readily found in this snowy terrain!
-  thisFunctionality: Can be used to craft equipment.
-  isConsumable: 0
-  healthEffect: 0
-  caloriesEffect: 0
-  hydrationEffect: 0
+  category: Materials

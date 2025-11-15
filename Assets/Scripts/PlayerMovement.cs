@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // State Variables
     private bool isSwimming = false;
     private bool isSprinting = false;
-    private bool isSwimSprinting = false;
+    //private bool isSwimSprinting = false;
     private bool isDashing = false;
     private bool isCrouching = false;
 

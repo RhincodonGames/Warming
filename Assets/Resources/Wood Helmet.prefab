@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5894729741865115421}
   - component: {fileID: 2311229561574616763}
   - component: {fileID: 8229073127933134433}
-  - component: {fileID: -1530239250806558999}
+  - component: {fileID: 8772597980041694567}
   m_Layer: 0
   m_Name: Wood Helmet
-  m_TagString: Untagged
+  m_TagString: EquipmentSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfc4c7e360b8144eac871d1b5d925d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1530239250806558999
+--- !u!114 &8772597980041694567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,14 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6048126988385102409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98f42dc19121364e8ae6c5caf49e583, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d8006f682bcb24483353eda7c85da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
-  thisName: Wood Helmet
-  thisDescription: Helmet made out of wood.
-  thisFunctionality: -5 DMG pts (while taking damage)
-  isConsumable: 0
-  healthEffect: 0
-  caloriesEffect: 0
-  hydrationEffect: 0
+  category: Equipment

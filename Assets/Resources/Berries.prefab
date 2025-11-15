@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1305531514354398313}
   - component: {fileID: 4262625746816494227}
   - component: {fileID: 3415102713903564627}
-  - component: {fileID: -7964810199868009473}
+  - component: {fileID: 1980968569749157478}
   m_Layer: 0
   m_Name: Berries
   m_TagString: FoodSlot
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfc4c7e360b8144eac871d1b5d925d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7964810199868009473
+--- !u!114 &1980968569749157478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,14 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2816389391539160721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98f42dc19121364e8ae6c5caf49e583, type: 3}
+  m_Script: {fileID: 11500000, guid: 07d8006f682bcb24483353eda7c85da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
-  thisName: Berries
-  thisDescription: A young polar bear's favorite snack.
-  thisFunctionality: Increase fullness (+5).
-  isConsumable: 0
-  healthEffect: 0
-  caloriesEffect: 5
-  hydrationEffect: 0
+  category: Food
