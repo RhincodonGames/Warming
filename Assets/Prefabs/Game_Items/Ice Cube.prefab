@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5601181944037861382}
   - component: {fileID: 7303383169283172256}
   m_Layer: 0
-  m_Name: IceCube
-  m_TagString: Untagged
+  m_Name: Ice Cube
+  m_TagString: Materials
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Ice Cube
+  ItemCategory: Materials

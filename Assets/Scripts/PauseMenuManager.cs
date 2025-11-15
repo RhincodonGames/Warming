@@ -25,6 +25,26 @@ public class PauseMenuManager : MonoBehaviour
                 Pause();
                 
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!isPaused)
+            {
+                Pause();
+                openInventoryPanel();
+            }
+            else
+            {
+                if (InventoryPanel.activeSelf)
+                {
+                    Resume();
+                }
+                else
+                {
+                    openInventoryPanel();
+                }
+            }
+        }
     }
 
     public void Pause()
