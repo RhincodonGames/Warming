@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc97b8b9efc47264793000b8bf23a47b, type: 3}
+  m_Name: IceSpikedWoodHelmetRecipe
+  m_EditorClassIdentifier: 
+  itemName: Ice Spiked Wood Helmet
+  category: Equipment
+  prefab: {fileID: 1248460534094958373, guid: 7714c99ef3dcf6749b37f8db0e6680b4, type: 3}
+  materialsRequired:
+  - materialName: Wood
+    quantity: 3
+  - materialName: Ice Cube
+    quantity: 2

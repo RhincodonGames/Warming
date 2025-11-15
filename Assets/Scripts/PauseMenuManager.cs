@@ -7,6 +7,8 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject QuestsPanel;
     public GameObject InventoryPanel;
     public GameObject SystemPanel;
+
+    public CraftingSystem craftingSystem;
     
     //All UI elements should pause game (all movement and audio -> switch to general audio if in fight)
     public bool isPaused = false;
@@ -17,7 +19,7 @@ public class PauseMenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !craftingSystem.isOpen)
         {
             if (isPaused)
                 Resume();
@@ -26,7 +28,7 @@ public class PauseMenuManager : MonoBehaviour
                 
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !craftingSystem.isOpen)
         {
             if (!isPaused)
             {

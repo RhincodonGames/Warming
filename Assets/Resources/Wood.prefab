@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 281335245730731163}
   - component: {fileID: 4945994493096966815}
   - component: {fileID: 5657310498113896552}
+  - component: {fileID: -5032215677697421345}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Untagged
@@ -101,3 +102,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-5032215677697421345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617521383228263831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98f42dc19121364e8ae6c5caf49e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: Wood
+  thisDescription: Wood from a tree.
+  thisFunctionality: Can be use to craft equipment.
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0

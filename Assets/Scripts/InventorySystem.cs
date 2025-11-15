@@ -8,6 +8,8 @@ public class InventorySystem : MonoBehaviour
 {
     public static InventorySystem Instance { get; set; }
 
+    public GameObject ItemInfoUI;
+
     // Food Tab Logic //
     public GameObject FoodTabUI;
     public List<GameObject> slotListFood = new List<GameObject>();
@@ -27,12 +29,6 @@ public class InventorySystem : MonoBehaviour
     public GameObject AbilitiesTabUI;
     public List<GameObject> slotListAbilities = new List<GameObject>();
     public List<String> itemListAbilities = new List<String>();
-
-    private GameObject itemToAdd;
-
-    private GameObject whatSlotToEquip;
-
-    //public bool isFull;
 
     private void Awake()
     {
@@ -111,11 +107,6 @@ public class InventorySystem : MonoBehaviour
             return;
         }
 
-        //whatSlotToEquip = FindNextEmptySlot();
-
-        //itemToAdd = Instantiate(Resources.Load<GameObject>(itemName), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
-        //itemToAdd.transform.SetParent(whatSlotToEquip.transform);
-
         GameObject newItem = Instantiate(Resources.Load<GameObject>(itemName), slot.transform);
         newItem.transform.localPosition = Vector3.zero;
 
@@ -135,17 +126,6 @@ public class InventorySystem : MonoBehaviour
                 return false;
             }
         }
-        //int usedSlots = 0;
-
-        //foreach(GameObject slot in slotListMaterials)
-        //{
-        //    if(slot.transform.childCount > 0)
-        //    {
-        //        usedSlots++;
-        //    }
-        //}
-
-        //return usedSlots >= slotListMaterials.Count;
         return true;
     }
 
