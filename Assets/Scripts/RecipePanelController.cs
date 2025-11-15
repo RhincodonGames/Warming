@@ -81,5 +81,8 @@ public class RecipePanelController : MonoBehaviour
                 }
             }
         }
+        // Add the crafted item to inventory
+        InventorySystem.Instance.AddToInventory(recipe.itemName, recipe.category);
+        Debug.Log(recipe.itemName + " crafted!");
     }
 }
