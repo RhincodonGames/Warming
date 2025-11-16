@@ -8,3 +8,7 @@
 ## Demo Video
 Watch the gameplay demo here:
 https://youtu.be/7gJMG2AU0b8
+
+## Itch.io Link
+Play on web browser here (executable is preferred way to play):
+https://khaol.itch.io/warming
