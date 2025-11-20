@@ -19,6 +19,8 @@ public class ItemConsumptionPanel : MonoBehaviour
     private string selectedItemCategory;
     private GameObject selectedItemGO;
 
+    public bool isOpen = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
@@ -31,9 +33,18 @@ public class ItemConsumptionPanel : MonoBehaviour
         cancelButton.onClick.AddListener(ClosePanel);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isOpen)
+        {
+            ClosePanel();
+        }
+    }
+
     // Opens the panel for a specific item
     public void OpenPanel(string itemName, string category, GameObject itemGO)
     {
+        isOpen = true;
         selectedItemName = itemName;
         selectedItemCategory = category;
         selectedItemGO = itemGO;
@@ -54,7 +65,8 @@ public class ItemConsumptionPanel : MonoBehaviour
     }
 
     private void ClosePanel()
-    {
+    {   
+        isOpen = false;
         selectedItemName = null;
         selectedItemCategory = null;
         selectedItemGO = null;

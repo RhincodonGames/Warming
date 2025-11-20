@@ -169,26 +169,26 @@ public class InventorySystem : MonoBehaviour
 
     public List<string> GetItemList(string category)
     {
-            if (category == "Food")
-    {
+        if (category == "Food")
+        {
         return itemListFood;
-    }
-    else if (category == "Equipment")
-    {
-        return itemListFoodEquipment;
-    }
-    else if (category == "Materials")
-    {
-        return itemListMaterials;
-    }
-    else if (category == "Abilities")
-    {
-        return itemListAbilities;
-    }
-    else
-    {
-        Debug.LogWarning("Unknown category: " + category + " — defaulting to Materials list.");
-        return itemListMaterials;
-    }
+        }
+        else if (category == "Equipment")
+        {
+            return itemListFoodEquipment;
+        }
+        else if (category == "Materials")
+        {
+            return itemListMaterials;
+        }
+        else if (category == "Abilities")
+        {
+            return itemListAbilities;
+        }
+        else
+        {
+            Debug.LogWarning("Unknown category: " + category + " — defaulting to Materials list.");
+            return itemListMaterials;
+        }
     }
 }

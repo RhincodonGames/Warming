@@ -17,9 +17,11 @@ public class PauseMenuManager : MonoBehaviour
 
     //private bool isSaved = false;
 
+    public ItemConsumptionPanel itemConsumptionPanel;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !craftingSystem.isOpen)
+        if (Input.GetKeyDown(KeyCode.Escape) && !craftingSystem.isOpen && !itemConsumptionPanel.isOpen)
         {
             if (isPaused)
                 Resume();

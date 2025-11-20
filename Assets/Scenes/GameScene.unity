@@ -5779,6 +5779,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624778738}
   m_CullTransparentMesh: 1
+--- !u!1 &627727027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627727028}
+  - component: {fileID: 627727030}
+  - component: {fileID: 627727029}
+  m_Layer: 0
+  m_Name: Manager (Inventory Tabs)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627727028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627727027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7993590596462823017}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627727029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627727027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc4c7e360b8144eac871d1b5d925d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingDragged: 0
+--- !u!114 &627727030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627727027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30085caf8aeeb1145b2b31309626ace8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoodTab: {fileID: 4147935365888577096}
+  EquipmentTab: {fileID: 5002883045901575376}
+  MaterialsTab: {fileID: 1014731795}
+  AbilitiesTab: {fileID: 8052232049659366917}
+  foodButton: {fileID: 1281056165}
+  equipmentButton: {fileID: 1363883508}
+  materialsButton: {fileID: 1797499292}
+  abilitiesButton: {fileID: 630324623}
+  pauseMenuManager: {fileID: 8375918086676159936}
+  dragDrop: {fileID: 663718519}
 --- !u!1 &630324621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5861,7 +5929,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8375918086676159937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryPanel, Assembly-CSharp
         m_MethodName: switchAbilitiesTab
         m_Mode: 1
@@ -6263,6 +6331,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661308340}
   m_CullTransparentMesh: 1
+--- !u!1 &663718517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663718518}
+  - component: {fileID: 663718519}
+  m_Layer: 0
+  m_Name: dragDrop.cs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663718518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663718517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7993590596462823017}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663718519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663718517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc4c7e360b8144eac871d1b5d925d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingDragged: 0
 --- !u!1 &680439276
 GameObject:
   m_ObjectHideFlags: 0
@@ -9783,6 +9896,7 @@ MonoBehaviour:
   discardButton: {fileID: 524618768}
   cancelButton: {fileID: 712352483}
   itemNameText: {fileID: 2119612167}
+  isOpen: 0
 --- !u!114 &1229255104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10437,7 +10551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8375918086676159937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryPanel, Assembly-CSharp
         m_MethodName: switchFoodTab
         m_Mode: 1
@@ -12075,7 +12189,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8375918086676159937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryPanel, Assembly-CSharp
         m_MethodName: switchEquipmentTab
         m_Mode: 1
@@ -15741,7 +15855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8375918086676159937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventoryPanel, Assembly-CSharp
         m_MethodName: switchMaterialsTab
         m_Mode: 1
@@ -22994,7 +23108,6 @@ GameObject:
   - component: {fileID: 7993590596462823017}
   - component: {fileID: 8375918086676159936}
   - component: {fileID: 8375918086676159938}
-  - component: {fileID: 8375918086676159937}
   m_Layer: 0
   m_Name: Manager (Pause Menu)
   m_TagString: Untagged
@@ -24121,7 +24234,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 627727028}
+  - {fileID: 663718518}
   m_Father: {fileID: 5216772096274808378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7995407355913235898
@@ -24422,27 +24537,7 @@ MonoBehaviour:
   SystemPanel: {fileID: 22908232}
   craftingSystem: {fileID: 1066804171}
   isPaused: 0
---- !u!114 &8375918086676159937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6113848491059290862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30085caf8aeeb1145b2b31309626ace8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FoodTab: {fileID: 4147935365888577096}
-  EquipmentTab: {fileID: 5002883045901575376}
-  MaterialsTab: {fileID: 1014731795}
-  AbilitiesTab: {fileID: 8052232049659366917}
-  foodButton: {fileID: 1281056165}
-  equipmentButton: {fileID: 1363883508}
-  materialsButton: {fileID: 1797499292}
-  abilitiesButton: {fileID: 630324623}
-  isPaused: {fileID: 8375918086676159936}
+  itemConsumptionPanel: {fileID: 1229255103}
 --- !u!114 &8375918086676159938
 MonoBehaviour:
   m_ObjectHideFlags: 0

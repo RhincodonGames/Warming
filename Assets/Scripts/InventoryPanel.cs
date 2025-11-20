@@ -16,7 +16,8 @@ public class InventoryPanel : MonoBehaviour
     public Button materialsButton;
     public Button abilitiesButton;
 
-    public PauseMenuManager isPaused;
+    public PauseMenuManager pauseMenuManager;
+    public DragDrop dragDrop;
 
     private void Start()
     {
@@ -26,26 +27,29 @@ public class InventoryPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPaused && Input.GetKeyDown(KeyCode.Alpha1))
+        if (pauseMenuManager.isPaused && !dragDrop.isBeingDragged)
         {
-            switchFoodTab();
-            EventSystem.current.SetSelectedGameObject(foodButton.gameObject);
-        }
-        else if (isPaused && Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            switchEquipmentTab();
-            EventSystem.current.SetSelectedGameObject(equipmentButton.gameObject);
-        }
-        else if (isPaused && Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            switchMaterialsTab();
-            EventSystem.current.SetSelectedGameObject(materialsButton.gameObject);
-        }
-        else if (isPaused && Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            switchAbilitiesTab();
-            EventSystem.current.SetSelectedGameObject(abilitiesButton.gameObject);
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                switchFoodTab();
+                EventSystem.current.SetSelectedGameObject(foodButton.gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                switchEquipmentTab();
+                EventSystem.current.SetSelectedGameObject(equipmentButton.gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                switchMaterialsTab();
+                EventSystem.current.SetSelectedGameObject(materialsButton.gameObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                switchAbilitiesTab();
+                EventSystem.current.SetSelectedGameObject(abilitiesButton.gameObject);
+            }
+        } 
     }
 
     public void switchFoodTab()
