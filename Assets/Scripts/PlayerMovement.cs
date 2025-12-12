@@ -35,18 +35,18 @@ public class PlayerMovement : MonoBehaviour
 
 
     // State Variables
-    private bool isSwimming = false;
-    private bool isSprinting = false;
+    public bool isSwimming = false;
+    public bool isSprinting = false;
     //private bool isSwimSprinting = false;
     private bool isDashing = false;
     private bool isCrouching = false;
 
-    // Reference to PlayerStats 
-    private PlayerStats playerStats;
+    // Reference to PlayerState 
+    private PlayerState playerState;
 
     private void Start()
     {
-        playerStats = GetComponent<PlayerStats>();
+        playerState = GetComponent<PlayerState>();
     }
 
     // Update is called once per frame
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && !isDashing)
         {
             // Check if player still has stamina (stamina > 1 to fix continous sprint bug)
-            if (playerStats.currentStamina > 1)
+            if (playerState.currentStamina > 1)
             {
                 if (!isSprinting)
                 {
@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 // Drain stamina while sprinting
-                playerStats.UseStamina(sprintStaminaCost * Time.deltaTime);
+                playerState.UseStamina(sprintStaminaCost * Time.deltaTime);
 
                 // Animation Logic
             } 
@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         // Dash Logic
         if (Input.GetKey(KeyCode.Space) && dashCooldownRemaining <= 0 && !isCrouching)
         {
-            if (playerStats.currentStamina >= dashStaminaCost)
+            if (playerState.currentStamina >= dashStaminaCost)
             {
                 StartDash();
             }
@@ -193,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
             dashDirection = inputDirection;
         }
 
-        playerStats.UseStamina(dashStaminaCost);
+        playerState.UseStamina(dashStaminaCost);
 
         // Dash Animation
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    public PlayerMovement isSprinting;
+    public PlayerMovement playerMovement;
 
     // Player Health //
     public float currentHealth;
@@ -13,18 +13,24 @@ public class PlayerState : MonoBehaviour
     // Player Hunger //
     public float currentHunger;
     public float maxHunger;
-
+    
     float distanceTraveled = 0;
     Vector3 lastPosition;
-
     public GameObject playerBody;
 
     // Player Hydration //
     public float currentHydrationPercent;
     public float maxHydrationPercent;
-
     public bool isHydrationActive;
 
+    // Player Stamina
+    public float maxStamina = 100f;
+    public float currentStamina;
+    public float staminaRegenRate = 10f;    // Stamina recovered per second
+    public float staminaRegenDelay = 2f;    // Delay before starting regeneration
+    public float timeSinceStaminaUsed = 0f;
+    
+    public GameObject staminaBar;
 
     public static PlayerState Instance { get; set; }
 
@@ -45,6 +51,12 @@ public class PlayerState : MonoBehaviour
         currentHealth = maxHealth;
         currentHunger = maxHunger;
         currentHydrationPercent = maxHydrationPercent;
+        currentStamina = maxStamina;
+
+        if (staminaBar != null)
+        {
+            staminaBar.SetActive(false);
+        }
 
         StartCoroutine(decreaseHydration());
         StartCoroutine(decreaseHunger());
@@ -87,17 +99,30 @@ public class PlayerState : MonoBehaviour
         distanceTraveled += Vector3.Distance(playerBody.transform.position, lastPosition);
         lastPosition = playerBody.transform.position;
 
-        if (distanceTraveled >= 10 && isSprinting)
+        if (distanceTraveled >= 10 && playerMovement.isSprinting)
         {
             distanceTraveled = 0;
             currentHunger -= 0.20f;
             currentHydrationPercent -= 0.25f;
         }
-        else if (distanceTraveled >= 10 && !isSprinting)
+        else if (distanceTraveled >= 10 && !playerMovement.isSprinting)
         {
             distanceTraveled = 0;
             currentHunger -= 0.15f;
             currentHydrationPercent -= 0.1f;
+        }
+
+        // Stamina Regeneration
+        RegenerateStamina();
+
+        // Show/Hide Stamina Bar
+        if (staminaBar != null && currentStamina != maxStamina)
+        {
+            staminaBar.SetActive(true);
+        }
+        else if (staminaBar != null && currentStamina >= maxStamina)
+        {
+            staminaBar.SetActive(false);
         }
 
         //Testing Purposes
@@ -106,5 +131,56 @@ public class PlayerState : MonoBehaviour
             currentHealth -= 10;
             currentHunger -= 10;
         }
+    }
+
+    // Stamina Methods
+    public bool UseStamina(float amount)
+    {
+        // Check if player has enought stamina for movement/attack
+        if (currentStamina >= amount)
+        {
+            currentStamina -= amount;
+            currentStamina = Mathf.Max(currentStamina, 0);
+
+            // Reset regeneration timer
+            timeSinceStaminaUsed = 0f;
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool HasStamina(float amount)
+    {
+        return currentStamina >= amount;
+    }
+
+    void RegenerateStamina()
+    {
+        // Don't regenerate if stamina is full
+        if (currentStamina >= maxStamina)
+        {
+            currentStamina = maxStamina;
+            return;
+        }
+
+        // Increment timer
+        timeSinceStaminaUsed += Time.deltaTime;
+
+        // Only regen after delay
+        if (timeSinceStaminaUsed >= staminaRegenDelay)
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            currentStamina = Mathf.Min(currentStamina, maxStamina);     // Don't exceed max stamina
+        }
+    }
+
+    public void RestoreStamina(float amount)
+    {
+        currentStamina += amount;
+        currentStamina = Mathf.Min(currentStamina, maxStamina);     // Don't exceed max stamina
     }
 }

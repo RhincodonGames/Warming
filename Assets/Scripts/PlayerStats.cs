@@ -12,22 +12,26 @@ public class PlayerStats : MonoBehaviour
     public float timeSinceStaminaUsed = 0f;
     //private bool staminaUpgrade = false;
 
-    //Health System
-    //public float maxHealth = 100f;
-    //public float currentHealth;
+    public GameObject staminaBar;
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialize stats
         currentStamina = maxStamina;
-        //currentHealth = maxHealth;
+
+        staminaBar.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         RegenerateStamina();
+
+        if (currentStamina != maxStamina)
+        {
+            staminaBar.SetActive(true);
+        }
     }
 
     public bool UseStamina(float amount)

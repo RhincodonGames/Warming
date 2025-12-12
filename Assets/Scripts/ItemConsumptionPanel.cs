@@ -102,15 +102,27 @@ public class ItemConsumptionPanel : MonoBehaviour
         //expand later with ScriptableObject database for items
         if (itemName.Contains("Berries"))
         {
-            player.currentHunger += 20f;
+            player.currentHunger += 5f;
             if (player.currentHunger > player.maxHunger) player.currentHunger = player.maxHunger;
-            Debug.Log("Restore 20 Hunger");
+            Debug.Log("Restore 5 Hunger");
         }
         else if (itemName.Contains("Water"))
         {
             player.currentHydrationPercent += 25f;
             if (player.currentHydrationPercent > player.maxHydrationPercent) player.currentHydrationPercent = player.maxHydrationPercent;
             Debug.Log("Restore 25 Hydration Percent");
+        }
+        else if (itemName.Contains("Fish"))
+        {
+            player.currentHunger += 15f;
+            if (player.currentHunger > player.maxHunger) player.currentHunger = player.maxHunger;
+            Debug.Log("Restore 15 Hunger");
+        }
+        else if (itemName.Contains("Meat"))
+        {
+            player.currentHunger += 20f;
+            if (player.currentHunger > player.maxHunger) player.currentHunger = player.maxHunger;
+            Debug.Log("Restore 20 Hunger");
         }
         //else if (itemName.Contains("Herbs"))
         //{
