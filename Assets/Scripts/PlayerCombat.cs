@@ -36,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
 
     private PlayerState playerState;
     private PlayerMovement playerMovement;
+    public SelectionManager selectionManager;
 
     private void Awake()
     {
@@ -147,14 +148,26 @@ public class PlayerCombat : MonoBehaviour
 
     void PerformAttack(float damage)
     {
-        // THIS is where you:
-        // - Raycast
-        // - Hitbox overlap
-        // - Animation events
-        // - EnemyHealth.TakeDamage(damage)
+        InteractableObject target = selectionManager.GetCurrentTarget();
 
-        // Placeholder:F
-        Debug.Log("");
+        if (target == null)
+            return;
+
+        if (target.ItemCategory != "Attackable")
+            return;
+
+        AttackableObject attackable = target.GetComponent<AttackableObject>();
+
+        if (attackable == null)
+            return;
+
+        float distance = Vector3.Distance(transform.position, attackable.transform.position);
+        if (distance > selectionManager.interactionDistance)
+            return;
+
+        attackable.TakeDamage(damage);
+
+        Debug.Log("Hit " + attackable.ItemName + " for " + damage);
     }
 
     // Cooldown Logic

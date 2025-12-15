@@ -54,7 +54,12 @@ public class SelectionManager : MonoBehaviour
                 if (distance <= interactionDistance)
                 {
                     currentTarget = interactable;
-                    interactionText.text = interactable.GetItemName() + " (E)";
+                    if (currentTarget.ItemCategory == "Attackable")
+                    {
+                        interactionText.text = interactable.GetItemName() + " (<)";
+                    }
+                    else 
+                        interactionText.text = interactable.GetItemName() + " (E)";
 
                     //UI under cursor
                     interactionInfoUI.transform.position = Input.mousePosition + new Vector3(0, -30f, 0);
@@ -71,7 +76,7 @@ public class SelectionManager : MonoBehaviour
 
     private void HandleInteraction()
     {
-        if (currentTarget != null && Input.GetKeyDown(KeyCode.E))
+        if (currentTarget != null && Input.GetKeyDown(KeyCode.E) && currentTarget.ItemCategory != "Attackable")
         {
             float distance = Vector3.Distance(player.position, currentTarget.transform.position);
             if (distance <= interactionDistance)
@@ -79,5 +84,10 @@ public class SelectionManager : MonoBehaviour
                 currentTarget.Interact();
             }
         }
+    }
+
+    public InteractableObject GetCurrentTarget()
+    {
+        return currentTarget;
     }
 }
