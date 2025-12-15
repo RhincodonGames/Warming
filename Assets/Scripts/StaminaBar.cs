@@ -27,6 +27,8 @@ public class StaminaBar : MonoBehaviour
 
         if (currentStamina > maxStamina) currentStamina = maxStamina;
 
+        if (currentStamina <= 0) currentStamina = 0;
+
         float fillValue = currentStamina / maxStamina;
         slider.value = fillValue;
 

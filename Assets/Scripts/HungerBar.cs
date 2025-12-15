@@ -27,6 +27,8 @@ public class HungerBar : MonoBehaviour
 
         if (currentHunger > maxHunger) currentHunger = maxHunger;
 
+        if (currentHunger <= 0) currentHunger = 0;
+
         float fillValue = currentHunger / maxHunger;
         slider.value = fillValue;
 

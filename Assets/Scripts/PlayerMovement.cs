@@ -46,7 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        playerState = GetComponent<PlayerState>();
+        playerState = PlayerState.Instance;
+        //playerState = GetComponent<PlayerState>();
+
+        turnSmoothVelocity = 0f;
     }
 
     // Update is called once per frame
@@ -97,7 +100,13 @@ public class PlayerMovement : MonoBehaviour
             // Smoothly rotate towards calculated angle
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
-            //Quaternion (how Unity stores rotations using Euler values) vs. Euler (degrees we can read, X, Y, Z)
+            // Clamp angle to valid range to prevent quarternion errors
+            if (float.IsNaN(angle) || float.IsInfinity(angle)) {
+                angle = targetAngle;
+            }
+            angle = Mathf.Repeat(angle, 360f);
+
+            // Quaternion (how Unity stores rotations using Euler values) vs. Euler (degrees we can read, X, Y, Z)
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             float currentSpeed = GetCurrentSpeed();
@@ -233,5 +242,17 @@ public class PlayerMovement : MonoBehaviour
             else
                 return walkSpeed;
         }
+    }
+
+    public void ResetMovement()
+    {
+        isSprinting = false;
+        isDashing = false;
+        isCrouching = false;
+
+        dashCooldownRemaining = 0f;
+        dashTimeRemaining = 0f;
+
+        velocity = Vector3.zero;
     }
 }

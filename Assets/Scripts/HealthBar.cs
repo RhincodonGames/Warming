@@ -27,6 +27,8 @@ public class HealthBar : MonoBehaviour
 
         if (currentHealth > maxHealth)  currentHealth = maxHealth;
 
+        if (currentHealth <= 0) currentHealth = 0;
+
         float fillValue = currentHealth / maxHealth;
         slider.value = fillValue;
 

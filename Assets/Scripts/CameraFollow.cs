@@ -20,6 +20,12 @@ public class CameraFollow : MonoBehaviour
     {
         // Store manual rotation setting in Inspector
         initialRotation = transform.rotation;
+
+        // Initialize camera pos. on scene load to prevent zoom issues
+        if (target != null)
+        {
+            transform.position = target.position + offset;
+        }
     }
     // Runs after Update() so camera movement is smoother
     private void LateUpdate()

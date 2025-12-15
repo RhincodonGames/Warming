@@ -53,6 +53,12 @@ public class PlayerState : MonoBehaviour
         currentHydrationPercent = maxHydrationPercent;
         currentStamina = maxStamina;
 
+        // Initialize lastPosition to prevent errors on first frame
+        if (playerBody != null)
+        {
+            lastPosition = playerBody.transform.position;
+        }
+
         if (staminaBar != null)
         {
             staminaBar.SetActive(false);
@@ -182,5 +188,13 @@ public class PlayerState : MonoBehaviour
     {
         currentStamina += amount;
         currentStamina = Mathf.Min(currentStamina, maxStamina);     // Don't exceed max stamina
+    }
+
+    public void TakeDamage(float rawDamage)
+    {
+        float finalDamage = PlayerCombat.Instance.CalculateIncomingDamage(rawDamage);
+
+        currentHealth -= finalDamage;
+        currentHealth = Mathf.Min(currentHealth, 0f);
     }
 }

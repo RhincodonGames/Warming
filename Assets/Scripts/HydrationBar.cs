@@ -27,6 +27,8 @@ public class HydrationBar : MonoBehaviour
 
         if (currentHydrationPercent > maxHydrationPercent) currentHydrationPercent = maxHydrationPercent;
 
+        if (currentHydrationPercent <= 0) currentHydrationPercent = 0;
+
         float fillValue = currentHydrationPercent / maxHydrationPercent;
         slider.value = fillValue;
 

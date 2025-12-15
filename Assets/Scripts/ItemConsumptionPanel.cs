@@ -11,6 +11,7 @@ public class ItemConsumptionPanel : MonoBehaviour
     // UI
     public GameObject panel;          // The panel itself
     public Button eatButton;
+    public Button equipButton;
     public Button discardButton;
     public Button cancelButton;
     public TMP_Text itemNameText;
@@ -21,6 +22,8 @@ public class ItemConsumptionPanel : MonoBehaviour
 
     public bool isOpen = false;
 
+    PlayerCombat playerCombat;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
@@ -29,6 +32,7 @@ public class ItemConsumptionPanel : MonoBehaviour
         panel.SetActive(false);
 
         eatButton.onClick.AddListener(OnEat);
+        equipButton.onClick.AddListener(OnEquip);
         discardButton.onClick.AddListener(OnDiscard);
         cancelButton.onClick.AddListener(ClosePanel);
     }
@@ -55,10 +59,30 @@ public class ItemConsumptionPanel : MonoBehaviour
         if (category == "Food")
         {
             eatButton.gameObject.SetActive(true);
+            equipButton.gameObject.SetActive(false);
+        }
+        else if (category == "Equipment")
+        {
+            equipButton.gameObject.SetActive(true);
+            eatButton.gameObject.SetActive(false);
+
+            // Set Equip/Unequip Text
+            HelmetType itemHelmet = GetHelmetTypeFromItem(itemName);
+            HelmetType equippedHelmet = PlayerCombat.Instance.GetEquippedHelmet();
+
+            TMP_Text equipButtonText = equipButton.GetComponentInChildren<TMP_Text>();
+
+            if (itemHelmet == equippedHelmet && equippedHelmet != HelmetType.None)
+            {
+                equipButtonText.text = "UNEQUIP";
+            }
+            else
+                equipButtonText.text = "EQUIP";
         }
         else
         {
             eatButton.gameObject.SetActive(false);
+            equipButton.gameObject.SetActive(false);
         }
 
         panel.SetActive(true);
@@ -78,10 +102,33 @@ public class ItemConsumptionPanel : MonoBehaviour
         if (selectedItemGO == null) return;
 
         // Apply stats based on item type
-        ApplyItemEffects(selectedItemName);
+        ApplyItemEffectsConsumable(selectedItemName);
 
         // Remove item from inventory
         RemoveItemFromInventory(selectedItemName, selectedItemCategory, selectedItemGO);
+
+        ClosePanel();
+    }
+
+    private void OnEquip()
+    {
+        if (selectedItemGO == null) return;
+
+        PlayerCombat playerCombat = PlayerCombat.Instance;
+        HelmetType itemHelmet = GetHelmetTypeFromItem(selectedItemName);
+
+        if (playerCombat.GetEquippedHelmet() == itemHelmet)
+        {
+            // Unequip
+            playerCombat.UnequipHelmet();
+            Debug.Log("Helmet unequipped");
+        }
+        else
+        {
+            // Equip
+            playerCombat.EquipHelmet(itemHelmet);
+            Debug.Log("Equipped helmet: " + itemHelmet);
+        }
 
         ClosePanel();
     }
@@ -94,7 +141,7 @@ public class ItemConsumptionPanel : MonoBehaviour
         ClosePanel();
     }
 
-    private void ApplyItemEffects(string itemName)
+    private void ApplyItemEffectsConsumable(string itemName)
     {
         PlayerState player = PlayerState.Instance;
         if (player == null) return;
@@ -130,6 +177,22 @@ public class ItemConsumptionPanel : MonoBehaviour
         //    if (player.currentHealth > player.maxHealth) player.currentHealth = player.maxHealth;
         //}
         // Add more items as needed
+    }
+
+    private HelmetType GetHelmetTypeFromItem(string itemName)
+    {
+        if (itemName.Contains("Ice Spiked Stone Helmet")) 
+            return HelmetType.IceSpikedStone;
+        if (itemName.Contains("Ice Spiked Wood Helmet")) 
+            return HelmetType.IceSpikedWood;
+        if (itemName.Contains("Stone Helmet")) 
+            return HelmetType.Stone;
+        if (itemName.Contains("Ice Helmet")) 
+            return HelmetType.Ice;
+        if (itemName.Contains("Wood Helmet")) 
+            return HelmetType.Wood;
+
+        return HelmetType.None;
     }
 
     private void RemoveItemFromInventory(string itemName, string category, GameObject itemGO)
