@@ -5,9 +5,10 @@
 2. Extract the downloaded '.zip' file.
 3. Run the executable named "Warming"
 
-## Demo Video
+
+## Demo Video v1
 Watch the gameplay demo here:
-https://youtu.be/7gJMG2AU0b8
+[https://youtu.be/7gJMG2AU0b8](https://youtu.be/UQ0fJSbanhI)
 
 ## Itch.io Link
 Play on web browser here (executable is preferred way to play):
