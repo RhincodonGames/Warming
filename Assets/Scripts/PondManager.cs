@@ -6,7 +6,7 @@ public class PondManager : MonoBehaviour
 {
     public GameObject fishPrefab;
     public int initialFishCount = 5;
-    public float pondRadius = 5f;
+    public float pondRadius = 30f;
     public float spawnHeight = 0.5f;  // Height above pond bottom where fish spawn
 
     public float respawnDelay = 30f;  // Time before respawning fish

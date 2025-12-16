@@ -156,18 +156,37 @@ public class PlayerCombat : MonoBehaviour
         if (target.ItemCategory != "Attackable")
             return;
 
-        AttackableObject attackable = target.GetComponent<AttackableObject>();
-
-        if (attackable == null)
-            return;
-
-        float distance = Vector3.Distance(transform.position, attackable.transform.position);
+        // Check distance
+        float distance = Vector3.Distance(transform.position, target.transform.position);
         if (distance > selectionManager.interactionDistance)
             return;
 
-        attackable.TakeDamage(damage);
+        // Try to damage as AttackableObject first
+        AttackableObject attackable = target.GetComponent<AttackableObject>();
+        if (attackable != null)
+        {
+            attackable.TakeDamage(damage);
+            Debug.Log("Hit " + attackable.ItemName + " for " + damage);
+            return;
+        }
 
-        Debug.Log("Hit " + attackable.ItemName + " for " + damage);
+        // Try to damage as FishMob
+        FishMob fishMob = target.GetComponent<FishMob>();
+        if (fishMob != null)
+        {
+            fishMob.TakeDamage(damage);
+            Debug.Log("Hit " + fishMob.ItemName + " for " + damage);
+            return;
+        }
+
+        // Try to damage as SealMob
+        SealMob sealMob = target.GetComponent<SealMob>();
+        if (sealMob != null)
+        {
+            sealMob.TakeDamage(damage);
+            Debug.Log("Hit " + sealMob.ItemName + " for " + damage);
+            return;
+        }
     }
 
     // Cooldown Logic

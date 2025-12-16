@@ -326,6 +326,8 @@ GameObject:
   - component: {fileID: 86798045577847711}
   - component: {fileID: -594243333386516657}
   - component: {fileID: 4717934304388479841}
+  - component: {fileID: 2339099696510702577}
+  - component: {fileID: 4419489226899049967}
   m_Layer: 0
   m_Name: Iceberg
   m_TagString: Untagged
@@ -388,6 +390,45 @@ MonoBehaviour:
   - {fileID: 6151609575151207774, guid: eb5fab55157d3af489636ef9993bf1d7, type: 3}
   minDrops: 1
   maxDrops: 3
+--- !u!114 &2339099696510702577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003085051133652730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51097882f0bb47d48b37364db38e5df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &4419489226899049967
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003085051133652730}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8726910154383931638
 GameObject:
   m_ObjectHideFlags: 0

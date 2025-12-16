@@ -158,15 +158,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c84626440b8084e88820c3da2be572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: 
-  ItemCategory: 
+  ItemName: Fish
+  ItemCategory: Attackable
   maxHealth: 20
-  currentHealth: 0
+  currentHealth: 20
   swimSpeed: 2
   rotationSpeed: 2
   changeDirectionInterval: 3
   pondCenter: {fileID: 0}
-  pondRadius: 5
+  pondRadius: 30
   surfaceLevel: 0.5
   depthRange: 1
   fishDropPrefab: {fileID: 8898599608562589590, guid: 6b40a37546f3fa94da2a72160b601490,

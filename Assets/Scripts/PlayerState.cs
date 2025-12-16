@@ -195,6 +195,6 @@ public class PlayerState : MonoBehaviour
         float finalDamage = PlayerCombat.Instance.CalculateIncomingDamage(rawDamage);
 
         currentHealth -= finalDamage;
-        currentHealth = Mathf.Min(currentHealth, 0f);
+        currentHealth = Mathf.Max(currentHealth, 0f);
     }
 }

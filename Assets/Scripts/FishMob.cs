@@ -17,7 +17,7 @@ public class FishMob : InteractableObject
 
     // Pond Bounds
     public Transform pondCenter;
-    public float pondRadius = 5f;
+    public float pondRadius = 30f;
     public float surfaceLevel = 0.5f;  // How high fish swim from pond bottom
     public float depthRange = 1f;      // Vertical movement range
 
