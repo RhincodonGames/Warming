@@ -22,6 +22,12 @@ public class InventoryPanel : MonoBehaviour
     private void Start()
     {
         switchFoodTab();
+
+        // Hide item info on startup
+        if (ItemInfoDisplay.Instance != null)
+        {
+            ItemInfoDisplay.Instance.HideItemInfo();
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +64,9 @@ public class InventoryPanel : MonoBehaviour
         EquipmentTab.SetActive(false);
         MaterialsTab.SetActive(false);
         AbilitiesTab.SetActive(false);
+
+        // Update item info display
+        UpdateItemInfoForCurrentTab();
     }
 
     public void switchEquipmentTab()
@@ -66,6 +75,9 @@ public class InventoryPanel : MonoBehaviour
         MaterialsTab.SetActive(false);
         AbilitiesTab.SetActive(false);
         FoodTab.SetActive(false);
+
+        // Update item info display
+        UpdateItemInfoForCurrentTab();
     }
     public void switchMaterialsTab()
     {
@@ -73,13 +85,27 @@ public class InventoryPanel : MonoBehaviour
         AbilitiesTab.SetActive(false);
         FoodTab.SetActive(false);
         EquipmentTab.SetActive(false);
+
+        // Update item info display
+        UpdateItemInfoForCurrentTab();
     }
 
     public void switchAbilitiesTab()
     {
         AbilitiesTab.SetActive(true);
-        FoodTab.SetActive(false);
+        FoodTab.SetActive(false);   
         EquipmentTab.SetActive(false);
         MaterialsTab.SetActive(false);
+
+        // Update item info display
+        UpdateItemInfoForCurrentTab();
+    }
+
+    private void UpdateItemInfoForCurrentTab()
+    {
+        if (ItemInfoDisplay.Instance != null)
+        {
+            ItemInfoDisplay.Instance.DisplayFirstAvailableItem();
+        }
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - Equipment
   - Materials
   - Abilities
+  - Ground
+  - Pond
   layers:
   - Default
   - TransparentFX

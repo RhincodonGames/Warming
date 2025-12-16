@@ -142,7 +142,7 @@ public class InventorySystem : MonoBehaviour
         //return new GameObject;
     }
 
-    private List<GameObject> GetSlotList(string category)
+    public List<GameObject> GetSlotList(string category)
     {
         if (category == "Food")
         {

@@ -116,6 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4856268089361787696}
+  - component: {fileID: -2012985103748260009}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -145,6 +146,35 @@ Transform:
   - {fileID: 5772844453238773787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2012985103748260009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118979326461778220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c84626440b8084e88820c3da2be572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: 
+  ItemCategory: 
+  maxHealth: 20
+  currentHealth: 0
+  swimSpeed: 2
+  rotationSpeed: 2
+  changeDirectionInterval: 3
+  pondCenter: {fileID: 0}
+  pondRadius: 5
+  surfaceLevel: 0.5
+  depthRange: 1
+  fishDropPrefab: {fileID: 8898599608562589590, guid: 6b40a37546f3fa94da2a72160b601490,
+    type: 3}
+  minDrops: 1
+  maxDrops: 2
+  fleeSpeed: 4
+  fleeDuration: 2
 --- !u!1 &3214373532295624297
 GameObject:
   m_ObjectHideFlags: 0

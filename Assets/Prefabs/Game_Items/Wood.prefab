@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8656285279475819040}
   - component: {fileID: 3344802934268150529}
   - component: {fileID: -6042143226020418469}
+  - component: {fileID: 7574293638880333297}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Materials
@@ -148,3 +149,15 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7574293638880333297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561245853970740955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51097882f0bb47d48b37364db38e5df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
